@@ -14,6 +14,9 @@ import br.com.cee.util.Game;
 @Component
 public class JokenpoApplicationCommandLine implements CommandLineRunner {
 	
+	  @Autowired
+      GameResultService service;
+	
 	@Override    
     public void run(String... args) throws Exception {
 		
@@ -23,8 +26,6 @@ public class JokenpoApplicationCommandLine implements CommandLineRunner {
         int roundCounts = 0;
         
         GameResult result = new GameResult();
-        
-        GameResultService service = new GameResultService();
 		
 		do {
 			System.out.println("Bem vindo ao Jokenpo");
@@ -53,7 +54,7 @@ public class JokenpoApplicationCommandLine implements CommandLineRunner {
 			
 			System.out.println("O resultado foi: " + result.getResult());
 			
-			//service.save(result);
+			service.save(result);
 			
 			result = new GameResult();
 			

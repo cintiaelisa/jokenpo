@@ -3,6 +3,8 @@ package br.com.cee.entity;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -10,6 +12,7 @@ public class GameResult implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
+	@GeneratedValue (strategy = GenerationType.AUTO)
 	Long id;
 	String userName;
 	Integer usersWins = 0;
@@ -20,9 +23,7 @@ public class GameResult implements Serializable {
 		
 	}
 
-	public GameResult(Long id, String userName, Integer usersWins, Integer computerWins) {
-		super();
-		this.id = id;
+	public GameResult(String userName, Integer usersWins, Integer computerWins) {
 		this.userName = userName;
 		this.usersWins = usersWins;
 		this.computerWins = computerWins;
